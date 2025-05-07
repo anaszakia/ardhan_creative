@@ -805,24 +805,24 @@
         const setupTestimonials = function() {
             const testimonials = [
                 {
-                    name: "Erika",
-                    position: "CEO PT. Maju Jaya",
+                    name: "Poltekkes Kemenkes Semarang",
+                    position: "Ruang Radiologi",
                     image: "/images/testi/1.jpg",
-                    text: "Kerjasama dengan tim sangat menyenangkan! Website kami kini tampil modern dan trafik meningkat drastis.",
+                    text: "Kerja sama yang sangan memuaskan dengan Ardhan Creative dalam pembuatan sistem IOT untuk kontrol dan monitor suhu ruangan radiolgi di poltekkes kemenkes semarang",
                     rating: 5
                 },
                 {
-                    name: "Sari Anjani",
-                    position: "Marketing Manager",
+                    name: "Dinas Sosial P3AKB",
+                    position: "Subbag",
                     image: "/images/testi/2.jpg",
-                    text: "Aplikasi mobile yang dikembangkan sangat user-friendly dan sesuai dengan kebutuhan bisnis kami.",
+                    text: "Aplikasi absensi mahasiswa magang yang diciptakan Ardhan Creative sangat membantu kita dalam melakukan rekap kehadiran pserta magang di kantor kami.",
                     rating: 5
                 },
                 {
                     name: "Andi Rahman",
                     position: "Founder Startup",
                     image: "/images/testi/3.jpg",
-                    text: "Layanan SEO yang luar biasa! Kami sekarang berada di halaman pertama Google untuk keyword utama.",
+                    text: "Logo yang di ciptakan oleh Ardhan Creative untuk usaha kami sangat elegan dan moderen, layanan yang diberikan sangat baik.",
                     rating: 4
                 },
                 {
@@ -830,7 +830,7 @@
                     position: "Founder UMKM",
                     image: "/images/testi/4.jpg",
                     text: "Layanan SEO yang luar biasa! Kami sekarang berada di halaman pertama Google untuk keyword utama.",
-                    rating: 2
+                    rating: 5
                 }
             ];
             

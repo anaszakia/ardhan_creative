@@ -350,14 +350,6 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Tech stack data
-    const techStacks = {
-        mobile: ['Flutter', 'Firebase', 'Swift', 'React Native'],
-        web: ['Laravel', 'React', 'Tailwind CSS', 'Next.js'],
-        design: ['Figma', 'Adobe XD', 'Photoshop', 'Illustrator'],
-        seo: ['Analytics', 'SEMrush', 'Ahrefs', 'Search Console']
-    };
-
     // Hero animations
     function animateHero() {
         const elements = [
@@ -367,28 +359,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
         elements.forEach((el, i) => {
             if (el) {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
                 setTimeout(() => {
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
-                    el.style.transition = 'all 0.6s ease';
                 }, 300 + i * 100);
             }
         });
     }
-
     // Scroll animations
     function initScrollAnimations() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('fade-in')) {
+                        entry.target.classList.add('visible');
+                    }
+                    // Tambahkan CTA animation logic di sini jika perlu
+                    else if (entry.target.classList.contains('cta-section')) {
+                        document.querySelector('.cta-title').style.opacity = '1';
+                        document.querySelector('.cta-title').style.transform = 'translateY(0)';
+                        
+                        setTimeout(() => {
+                            document.querySelector('.cta-description').style.opacity = '1';
+                            document.querySelector('.cta-description').style.transform = 'translateY(0)';
+                        }, 300);
+                    }
                 }
             });
         }, { threshold: 0.1 });
 
+        // Observer untuk fade-in elements
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Observer untuk CTA section
+        const ctaSection = document.querySelector('.cta-section');
+        if (ctaSection) observer.observe(ctaSection);
     }
 
     // Project filtering
@@ -413,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Modal functionality
+    // Modal functionality (disederhanakan)
     function initModal() {
         const modal = document.getElementById('project-modal');
         const closeBtn = document.getElementById('close-modal');
@@ -427,22 +432,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('modal-title').textContent = project.title;
                 document.getElementById('modal-image').src = project.image;
                 document.getElementById('modal-description').textContent = project.deskripsi;
-                
-                // Set category
-                const categoryEl = document.getElementById('modal-category');
-                categoryEl.textContent = project.category.toUpperCase();
-                categoryEl.className = 'inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ' + 
-                    (project.category === 'mobile' ? 'bg-blue-100 text-blue-800' :
-                     project.category === 'web' ? 'bg-green-100 text-green-800' :
-                     project.category === 'design' ? 'bg-purple-100 text-purple-800' :
-                     'bg-yellow-100 text-yellow-800');
-                
-                // Set tech stack
-                const techEl = document.getElementById('modal-tech');
-                techEl.innerHTML = '';
-                (techStacks[project.category] || []).forEach(tech => {
-                    techEl.innerHTML += `<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">${tech}</span>`;
-                });
+                document.getElementById('modal-category').textContent = project.category.toUpperCase();
                 
                 // Set link
                 const linkBtn = document.getElementById('modal-link');
@@ -471,37 +461,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // CTA animations
-    function initCTA() {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                // Animate elements sequentially
-                document.querySelector('.cta-title').style.opacity = '1';
-                document.querySelector('.cta-title').style.transform = 'translateY(0)';
-                
-                setTimeout(() => {
-                    document.querySelector('.cta-description').style.opacity = '1';
-                    document.querySelector('.cta-description').style.transform = 'translateY(0)';
-                }, 300);
-                
-                document.querySelectorAll('.cta-feature').forEach((el, i) => {
-                    setTimeout(() => {
-                        el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
-                    }, 500 + i * 200);
-                });
-            }
-        }, { threshold: 0.3 });
-
-        observer.observe(document.querySelector('.cta-section'));
-    }
+    // HAPUS: initCTA() - digabungkan dengan initScrollAnimations
 
     // Initialize all functions
     animateHero();
     initScrollAnimations();
     initProjectFilter();
     initModal();
-    initCTA();
 });
 </script>
 @endpush

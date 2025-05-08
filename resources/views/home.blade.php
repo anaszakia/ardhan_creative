@@ -424,23 +424,6 @@
                             </a>
                         </div>
                     </div>
-                    
-                    {{-- <!-- Right Images -->
-                    <div class="w-full lg:w-2/5 mt-16 lg:mt-0 relative h-96 hero-images">
-                        <div class="relative w-full h-full">
-                            <div class="absolute top-0 right-0 w-64 h-auto transform rotate-6 hero-image" data-delay="0.3">
-                                <img src="{{ asset('images/layanan/web.jpg') }}" alt="Laptop Mockup" class="w-full h-auto">
-                            </div>
-                            
-                            <div class="absolute bottom-0 left-10 w-40 h-auto transform -rotate-12 hero-image" data-delay="0.6">
-                                <img src="{{ asset('images/layanan/mob.jpg') }}" alt="Mobile Mockup" class="w-full h-auto">
-                            </div>
-                            
-                            <div class="absolute top-1/4 left-0 w-48 h-auto transform -rotate-6 hero-image" data-delay="0.9">
-                                <img src="{{ asset('images/layanan/ui.jpg') }}" alt="Tablet Mockup" class="w-full h-auto">
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -460,7 +443,7 @@
                     @foreach($clients as $client)
                     <div class="px-4 flex items-center justify-center">
                         <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->klien }}"
-                            class="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all">
+                            class="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy">
                     </div>
                     @endforeach
                 </div>
@@ -484,7 +467,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-element">
                 @foreach($layanans as $layanan)
                 <div class="service-card bg-gradient-to-b from-transparent to-black relative rounded-lg overflow-hidden group h-96">
-                    <img src="{{ asset('storage/' . $layanan->gambar) }}" alt="{{ $layanan->layanan }}" class="w-full h-full object-cover absolute inset-0">
+                    <img src="{{ asset('storage/' . $layanan->gambar) }}" alt="{{ $layanan->layanan }}" class="w-full h-full object-cover absolute inset-0" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-all"></div>
                     <div class="relative z-10 flex flex-col justify-end h-full p-6">
                         <h3 class="text-2xl font-bold text-white mb-2">{{ $layanan->layanan }}</h3>
@@ -585,7 +568,7 @@
                     <div class="flex items-center p-6">
                         <div class="w-24 h-24 flex-shrink-0 mr-4 animate-pulse-slow">
                             <div class="w-full h-full bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/inovatif.png') }}" alt="Inovatif Icon" class="w-16 h-16" />
+                                <img src="{{ asset('images/hero/inovatif.png') }}" alt="Inovatif Icon" class="w-16 h-16" loading="lazy" />
                             </div>
                         </div>
                         <div>
@@ -600,7 +583,7 @@
                     <div class="flex items-center p-6">
                         <div class="w-24 h-24 flex-shrink-0 mr-4 animate-bounce-slow">
                             <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/kualitas.jpg') }}" alt="Berkualitas Icon" class="w-16 h-16" />
+                                <img src="{{ asset('images/hero/kualitas.jpg') }}" alt="Berkualitas Icon" class="w-16 h-16" loading="lazy" />
                             </div>
                         </div>
                         <div>
@@ -615,7 +598,7 @@
                     <div class="flex items-center p-6">
                         <div class="w-24 h-24 flex-shrink-0 mr-4 animate-spin-slow">
                             <div class="w-full h-full bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/percaya.jpg') }}" alt="Handal Icon" class="w-16 h-16" />
+                                <img src="{{ asset('images/hero/percaya.jpg') }}" alt="Handal Icon" class="w-16 h-16" loading="lazy" />
                             </div>
                         </div>
                         <div>
@@ -634,7 +617,7 @@
                     <div class="flex items-center p-6">
                         <div class="w-24 h-24 flex-shrink-0 mr-4 animate-pulse-slow">
                             <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/respon.jpg') }}" alt="Cepat Icon" class="w-16 h-16" />
+                                <img src="{{ asset('images/hero/respon.jpg') }}" alt="Cepat Icon" class="w-16 h-16" loading="lazy" />
                             </div>
                         </div>
                         <div>
@@ -649,7 +632,7 @@
                     <div class="flex items-center p-6">
                         <div class="w-24 h-24 flex-shrink-0 mr-4 animate-bounce-slow">
                             <div class="w-full h-full bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/kreatif.png') }}" alt="Kreatif Icon" class="w-16 h-16" />
+                                <img src="{{ asset('images/hero/kreatif.png') }}" alt="Kreatif Icon" class="w-16 h-16" loading="lazy" />
                             </div>
                         </div>
                         <div>
@@ -664,7 +647,7 @@
                     <div class="flex items-center p-6">
                         <div class="w-24 h-24 flex-shrink-0 mr-4 animate-spin-slow">
                             <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/pro.jpg') }}" alt="Profesional Icon" class="w-16 h-16" />
+                                <img src="{{ asset('images/hero/pro.jpg') }}" alt="Profesional Icon" class="w-16 h-16" loading="lazy" />
                             </div>
                         </div>
                         <div>
@@ -858,7 +841,7 @@
                     testimonialCard.innerHTML = `
                         <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
                             <div class="flex items-center mb-6">
-                                <img src="${testimonial.image}" alt="${testimonial.name}" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <img src="${testimonial.image}" alt="${testimonial.name}" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy">
                                 <div>
                                     <h4 class="text-xl font-semibold text-gray-900">${testimonial.name}</h4>
                                     <p class="text-gray-600">${testimonial.position}</p>
@@ -972,18 +955,6 @@
         document.querySelectorAll('.counter-section, .cta-section, .why-choose-us').forEach(section => {
             counterObserver.observe(section);
         });
-        
-        // Client logo slider
-        // const logoSlider = document.querySelector('.logo-slider');
-        // if (logoSlider) {
-        //     const logos = document.querySelectorAll('.logo-slider > div');
-            
-        //     // Clone all logos and append them to create the illusion of infinite scrolling
-        //     logos.forEach(logo => {
-        //         const clone = logo.cloneNode(true);
-        //         logoSlider.appendChild(clone);
-        //     });
-        // }
     });
      document.addEventListener('DOMContentLoaded', function() {
         // Add these to your existing DOMContentLoaded function
@@ -1158,96 +1129,5 @@
             }
         }
     }
-    
-    // Create floating particles for background effect
-    function createParticles() {
-        const containers = document.querySelectorAll('.particles-container');
-        
-        containers.forEach(container => {
-            const numParticles = 30;
-            
-            for (let i = 0; i < numParticles; i++) {
-                const size = Math.random() * 5 + 2;
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random position
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                
-                // Random opacity and size
-                const opacity = Math.random() * 0.5 + 0.1;
-                
-                // Set styles
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.left = posX + '%';
-                particle.style.top = posY + '%';
-                particle.style.opacity = opacity;
-                
-                // Add to container
-                container.appendChild(particle);
-                
-                // Animate
-                animateParticle(particle);
-            }
-        });
-    }
-    
-    function animateParticle(particle) {
-        const duration = Math.random() * 20 + 10;
-        const offsetX = Math.random() * 40 - 20;
-        const offsetY = Math.random() * 40 - 20;
-        
-        particle.style.transition = `transform ${duration}s linear, opacity 3s ease-in-out`;
-        
-        setTimeout(() => {
-            particle.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-        }, 100);
-        
-        // Reset animation periodically for continuous effect
-        setTimeout(() => {
-            particle.style.opacity = '0';
-            
-            setTimeout(() => {
-                // Reset position
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                particle.style.transition = 'none';
-                particle.style.transform = 'translate(0, 0)';
-                particle.style.left = posX + '%';
-                particle.style.top = posY + '%';
-                
-                setTimeout(() => {
-                    particle.style.opacity = Math.random() * 0.5 + 0.1;
-                    animateParticle(particle);
-                }, 300);
-            }, 3000);
-        }, duration * 1000 - 3000);
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-    // Client logo slider
-    const logoSlider = document.querySelector('.logo-slider');
-    if (logoSlider) {
-        const logos = logoSlider.querySelectorAll('div');
-        
-        // Clone all logos and append them to create the illusion of infinite scrolling
-        logos.forEach(logo => {
-            const clone = logo.cloneNode(true);
-            logoSlider.appendChild(clone);
-        });
-    }
-    
-    // Hero section animations
-    setTimeout(() => {
-        if (typeof animateHeroSection === 'function') {
-            animateHeroSection();
-        }
-        if (typeof createParticles === 'function') {
-            createParticles();
-        }
-    }, 100);
-});
 </script>
 @endpush

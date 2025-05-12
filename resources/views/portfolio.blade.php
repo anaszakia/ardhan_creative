@@ -461,8 +461,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // HAPUS: initCTA() - digabungkan dengan initScrollAnimations
-
     // Initialize all functions
     animateHero();
     initScrollAnimations();

@@ -90,7 +90,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
-                            <span class="font-light">Brand Design ( Pembuatan Logo, Mockup Brand, dll)</span>
+                            <span class="font-light">UI/UX & Brand Design( Pembuatan Logo, Mockup Brand, dll)</span>
                         </a>
                     </li>
                     <li>

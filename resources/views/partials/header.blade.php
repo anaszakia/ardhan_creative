@@ -20,11 +20,11 @@
                 </a>
                 <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 hidden group-hover:block transform transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
                     <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa Pembuatan Web</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa Pembuatan Aplikasi Android & IOS</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Brand Design ( Pembuatan Logo, Mockup Brand, dll)</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa Pembuatan Prototype IOT</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa SEO & Sosial Media ADS</a>
+                        <a href="{{ route('layanan.web') }}" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa Pembuatan Web</a>
+                        <a href="{{ route('layanan.apk') }}" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa Pembuatan Aplikasi Android & IOS</a>
+                        <a href="{{ route('layanan.design') }}" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">UI/UX & Brand Design( Pembuatan Logo, Mockup Brand, dll)</a>
+                        <a href="{{ route('layanan.iot') }}" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa Pembuatan Prototype IOT</a>
+                        <a href="{{ route('layanan.seo') }}" class="block px-4 py-2 text-sm text-white hover:bg-gray-700 transition-all duration-200">Jasa SEO & Sosial Media ADS</a>
                     </div>
                 </div>
             </div>
@@ -76,11 +76,11 @@
                     </svg>
                 </div>
                 <div class="mobile-dropdown-content hidden pl-4">
-                    <a href="#" class="block py-2 text-white hover:text-blue-400">Website Development</a>
-                    <a href="#" class="block py-2 text-white hover:text-blue-400">Mobile App Development</a>
-                    <a href="#" class="block py-2 text-white hover:text-blue-400">UI/UX & Brand Design</a>
-                    <a href="#" class="block py-2 text-white hover:text-blue-400">SEO</a>
-                    <a href="#" class="block py-2 text-white hover:text-blue-400">Sosial Media ADS</a>
+                    <a href="{{ route('layanan.web') }}" class="block py-2 text-white hover:text-blue-400">Jasa Pembuatan Web</a>
+                    <a href="{{ route('layanan.apk') }}" class="block py-2 text-white hover:text-blue-400">Jasa Pembuatan Aplikasi Android & IOS</a>
+                    <a href="{{ route('layanan.design') }}" class="block py-2 text-white hover:text-blue-400">UI/UX & Brand Design( Pembuatan Logo, Mockup Brand, dll)</a>
+                    <a href="{{ route('layanan.iot') }}" class="block py-2 text-white hover:text-blue-400">Jasa Pembuatan Prototype IOT</a>
+                    <a href="{{ route('layanan.seo') }}" class="block py-2 text-white hover:text-blue-400">Jasa SEO & Sosial Media ADS</a>
                 </div>
             </div>
             <a href="{{ route('portfolio') }}" class="block py-2 text-white hover:text-blue-400 font-bold">Portfolio</a>

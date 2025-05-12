@@ -451,7 +451,7 @@
         </div>
     </section>
 
-  <!-- Latar Belakang Section  -->
+     <!-- Latar Belakang Section  -->
     <section class="py-24 bg-gradient-to-b from-gray-50 to-gray-100">
         <div class="container mx-auto px-6 max-w-6xl">
             <!-- Section Header with Animated Underline -->
@@ -474,7 +474,7 @@
                         </div>
                         <div class="md:w-3/4">
                             <p class="text-gray-700 text-lg leading-relaxed">
-                                Ardhan Creative lahir dari pertemuan dua pikiran visioner yang melihat celah signifikan dalam lanskap digital Indonesia. Didirikan pada 16 September 2024, perusahaan kami memulai perjalanan dengan misi yang jelas: demokratisasi teknologi digital untuk UMKM Indonesia. Di tengah era transformasi digital yang pesat, kami hadir dengan komitmen memberikan solusi teknologi premium namun terjangkau, membuka pintu kesempatan bagi bisnis lokal untuk bersaing di kancah global.
+                                Ardhan Creative lahir dari pertemuan dua pikiran visioner yang melihat potensi luar biasa dalam revolusi digital Indonesia. Didirikan pada 16 September 2024, perusahaan kami memulai perjalanan dengan misi yang menggetarkan: mentransformasi lanskap digital untuk seluruh spektrum bisnis Indonesia. Di tengah era disrupsi teknologi yang tak tertahankan, kami hadir sebagai mitra strategis yang menawarkan solusi teknologi premium namun terjangkau, membuka gerbang kesempatan bagi setiap entitas bisnis—dari startup hingga korporasi, dari instansi pemerintah hingga perusahaan swasta—untuk bersaing dan unggul di panggung global.
                             </p>
                         </div>
                     </div>
@@ -489,7 +489,7 @@
                         </div>
                         <div class="md:w-3/4">
                             <p class="text-gray-700 text-lg leading-relaxed">
-                                Meski baru dalam industri kreatif digital, Ardhan Creative berdiri di atas fondasi nilai yang tak tergoyahkan: inovasi berkelanjutan, integritas tanpa kompromi, dan kolaborasi yang bermakna. Kami percaya bahwa transformasi digital bukan sekadar adopsi teknologi, melainkan perubahan fundamental dalam cara bisnis beroperasi dan terhubung dengan pelanggan mereka.
+                                Meski baru dalam industri kreatif digital, Ardhan Creative berdiri di atas fondasi nilai yang tak tergoyahkan: inovasi yang berani dan tiada henti, integritas tanpa kompromi, dan kolaborasi transformatif yang bermakna. Kami meyakini bahwa transisi digital adalah perjalanan revolusioner—bukan sekadar adopsi teknologi, melainkan metamorfosis fundamental dalam cara organisasi beroperasi, berinovasi, dan menciptakan hubungan bermakna dengan audiensnya.
                             </p>
                         </div>
                     </div>
@@ -504,7 +504,7 @@
                         </div>
                         <div class="md:w-3/4">
                             <p class="text-gray-700 text-lg leading-relaxed">
-                                Tim Ardhan Creative terdiri dari talenta-talenta digital terbaik dengan latar belakang beragam — dari pengembangan perangkat lunak hingga desain UX/UI, dari strategi konten hingga analitik data. Keberagaman keahlian ini memungkinkan kami menghadirkan solusi digital yang holistik dan disesuaikan dengan kebutuhan spesifik setiap klien, baik skala UMKM maupun korporasi.
+                                Tim Ardhan Creative menghadirkan orkestra talenta digital paling brilian dengan latar belakang yang mempesona—mulai dari pengembangan perangkat lunak mutakhir hingga desain UX/UI yang memukau, dari strategi konten yang memicu aksi hingga analitik data yang mendalam. Keberagaman keahlian yang kami rangkul memungkinkan orkestrasi solusi digital yang holistik dan presisi, disesuaikan untuk menjawab tantangan unik setiap klien, dari skala startup hingga perusahaan multinasional, dari instansi publik hingga korporasi ternama.
                             </p>
                         </div>
                     </div>
@@ -519,7 +519,7 @@
                         </div>
                         <div class="md:w-3/4">
                             <p class="text-gray-700 text-lg leading-relaxed">
-                                Sejak awal berdiri, Ardhan Creative berkomitmen pada inovasi teknologi terdepan. Solusi berbasis Artificial Intelligence dan Machine Learning menjadi salah satu fokus utama pengembangan kami, dengan visi mengintegrasikan teknologi canggih ini ke dalam solusi yang praktis dan aksesibel bagi berbagai skala bisnis di Indonesia.
+                                Sejak awal berdiri, Ardhan Creative berkomitmen menghadirkan teknologi paling mutakhir yang mentransformasi. Solusi berbasis Artificial Intelligence dan Machine Learning menjadi tulang punggung inovasi kami, dengan visi membawa teknologi yang selama ini hanya terjangkau oleh perusahaan-perusahaan Fortune 500 menjadi alat yang dapat diakses dan dioptimalkan oleh berbagai skala dan jenis organisasi di Indonesia—mengubah tantangan menjadi peluang dan visi menjadi kenyataan.
                             </p>
                         </div>
                     </div>
@@ -534,7 +534,7 @@
                         </div>
                         <div class="md:w-3/4">
                             <p class="text-gray-700 text-lg leading-relaxed">
-                                Meski baru memulai perjalanan, Ardhan Creative memiliki peta jalan ambisius untuk pertumbuhan berkelanjutan. Kami bertujuan menjadi katalisator transformasi digital di Indonesia, membangun ekosistem solusi digital yang memberdayakan bisnis lokal untuk berkembang dalam ekonomi digital global. Setiap langkah kami didorong oleh keyakinan bahwa teknologi seharusnya menjadi equalizer yang membuka peluang tanpa batas.
+                                Meski baru memulai perjalanan, Ardhan Creative telah melukiskan peta jalan yang menantang dan inspiratif untuk pertumbuhan yang tak terbendung. Kami bertekad menjadi katalisator revolusi digital di Indonesia, membangun ekosistem solusi teknologi yang memberdayakan setiap entitas bisnis—dari perusahaan startup yang energik hingga korporasi mapan, dari lembaga pemerintah hingga organisasi nirlaba—untuk berkembang pesat dan menciptakan jejak global dalam ekonomi digital yang semakin kompetitif.
                             </p>
                         </div>
                     </div>
@@ -543,7 +543,7 @@
                     <div class="text-center mt-16">
                         <div class="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8"></div>
                         <p class="text-gray-800 text-xl font-medium italic">
-                            "Perjalanan Ardhan Creative baru dimulai, tetapi visi kami jelas: membangun jembatan teknologi yang menghubungkan bisnis Indonesia dengan masa depan digital yang lebih cerah."
+                            "Perjalanan Ardhan Creative baru dimulai, namun visi kami tak terbantahkan: menciptakan jembatan teknologi yang menghubungkan setiap bisnis dan organisasi Indonesia dengan masa depan digital yang cemerlang dan tak terbatas."
                         </p>
                     </div>
                 </div>

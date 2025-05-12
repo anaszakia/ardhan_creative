@@ -408,7 +408,7 @@
                         </h1>
                         
                         <p class="text-xl md:text-2xl text-blue-100 opacity-90 max-w-2xl hero-description">
-                            Transformasi digital yang membawa brand Anda lebih kuat, relevan, dan siap hadapi Era Digital.<br><strong>Trasformasi digital dimualai dari sini !</strong>
+                            Transformasi digital yang membawa brand Anda lebih kuat, relevan, dan siap hadapi Era Digital.<br><strong>Trasformasi digital dimulai dari sini !</strong>
                         </p>
                         
                         <div class="flex flex-wrap gap-6 mt-4 hero-buttons">
@@ -434,22 +434,27 @@
     $clients = App\Models\Klien::all();
     @endphp
 
-    <section class="py-10 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Dipercaya oleh</h2>
-            
-            <div class="logo-container">
-                <div class="logo-slider">
-                    @foreach($clients as $client)
-                    <div class="px-4 flex items-center justify-center">
-                        <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->klien }}"
-                            class="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy">
+        <section class="py-10 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 inline-block relative pb-2">
+                        Klien Kami
+                        <!-- Garis biru muda -->
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-200 rounded-full"></span>
+                    </h2>
+                </div>
+                <div class="logo-container">
+                    <div class="logo-slider">
+                        @foreach($clients as $client)
+                        <div class="px-4 flex items-center justify-center">
+                            <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->klien }}"
+                                class="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy">
+                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Layanan Utama -->
     @php

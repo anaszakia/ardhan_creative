@@ -17,24 +17,24 @@ Route::prefix('layanan')->group(function () {
     })->name('layanan');
     
     Route::get('/website-development', function () {
-        return view('layanan.website-development');
-    })->name('layanan.website');
+        return view('layanan.web');
+    })->name('layanan.web');
     
     Route::get('/mobile-app-development', function () {
-        return view('layanan.mobile-app-development');
-    })->name('layanan.mobile');
+        return view('layanan.apk');
+    })->name('layanan.apk');
     
     Route::get('/ui-ux-brand-design', function () {
-        return view('layanan.ui-ux-brand-design');
-    })->name('layanan.uiux');
+        return view('layanan.design');
+    })->name('layanan.design');
     
-    Route::get('/seo', function () {
-        return view('layanan.seo');
-    })->name('layanan.seo');
+    Route::get('/iot', function () {
+        return view('layanan.iot');
+    })->name('layanan.iot');
     
     Route::get('/sosial-media-ads', function () {
-        return view('layanan.sosial-media-ads');
-    })->name('layanan.ads');
+        return view('layanan.seo');
+    })->name('layanan.seo');
 });
 
 // Portfolio

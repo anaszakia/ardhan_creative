@@ -37,7 +37,7 @@
             <a href="{{ route('karir') }}" class="text-white hover:text-blue-400 transition-all duration-300 font-bold relative nav-link">
                 Karir
             </a>
-            <a href="{{ route('blog') }}" class="text-white hover:text-blue-400 transition-all duration-300 font-bold relative nav-link">
+            {{-- <a href="{{ route('blog') }}" class="text-white hover:text-blue-400 transition-all duration-300 font-bold relative nav-link"> --}}
                 Blog
             </a>
             <a href="#" class="search-toggle text-white hover:text-blue-400 transition-all duration-300">
@@ -86,7 +86,7 @@
             <a href="{{ route('portfolio') }}" class="block py-2 text-white hover:text-blue-400 font-bold">Portfolio</a>
             <a href="{{ route('tentang-kami') }}" class="block py-2 text-white hover:text-blue-400 font-bold">Tentang Kami</a>
             <a href="{{ route('karir') }}" class="block py-2 text-white hover:text-blue-400 font-bold">Karir</a>
-            <a href="{{ route('blog') }}" class="block py-2 text-white hover:text-blue-400 font-bold">Blog</a>
+            {{-- <a href="{{ route('blog') }}" class="block py-2 text-white hover:text-blue-400 font-bold">Blog</a> --}}
             <a href="https://wa.me/6282227121942" target="_blank" class="block py-2 text-white hover:bg-blue-400 font-bold bg-blue-500 px-4 rounded">Konsultasi Sekarang</a>
         </div>
     </div>

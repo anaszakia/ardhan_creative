@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ $meta_title ?? 'Ardhan Creative - Beranda' }}</title>
-    <meta name="description" content="{{ $meta_description ?? 'Ardhan Creative adalah perusahaan kreatif yang menyediakan solusi digital seperti desain grafis, pengembangan web, dan branding profesional.' }}">
     
+    <title>Ardhan Creative - @yield('title', 'Beranda')</title>
     <link rel="icon" href="{{ asset('images/hero/logo1.png') }}" type="image/png">
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+    <!-- Meta SEO -->
+    <meta name="description" content="@yield('meta_description', 'Jasa pembuatan website profesional di Pati. Website cepat, responsif, dan SEO friendly. Hubungi kami sekarang!')">
+    <meta name="keywords" content="@yield('meta_keywords', 'jasa pembuatan website, pembuatan web pati, jasa web pati, web design pati')">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

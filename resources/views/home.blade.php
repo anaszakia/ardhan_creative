@@ -2,6 +2,10 @@
 
 @section('title', 'Beranda')
 
+@section('meta_description', 'Ardhan Creative menyediakan jasa pembuatan website profesional di Pati. Cepat, responsif, dan SEO friendly.')
+
+@section('meta_keywords', 'jasa pembuatan website, web development pati, jasa web pati')
+
 @push('styles')
 <style>
      /* Hero Section with Background Image */

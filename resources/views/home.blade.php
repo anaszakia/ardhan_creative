@@ -6,14 +6,24 @@
 
 @section('meta_keywords', 'jasa pembuatan website, web development pati, jasa web pati')
 
+@push('preload')
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/images/hero/layer2.webp" as="image" type="image/webp">
+    <link rel="preload" href="{{ asset('css/critical.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/critical.css') }}"></noscript>
+@endpush
+
 @push('styles')
 <style>
-     /* Hero Section with Background Image */
+    /* Critical Above-the-fold CSS Only */
     .hero-section {
-        background-image: url('/images/hero/layer2.jpg');
+        background-image: url('/images/hero/layer2.webp');
         background-size: cover;
         background-position: center;
         position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
     }
     
     .hero-section::before {
@@ -35,98 +45,11 @@
         z-index: 2;
     }
     
+    /* Defer non-critical animations */
     .hero-title span {
         display: inline-block;
-        opacity: 0;
-        transform: translateY(30px);
     }
     
-    .hero-description {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    
-    .hero-buttons {
-        opacity: 0;
-    }
-    
-    .hero-images img {
-        opacity: 0;
-        transform: scale(0.8);
-        transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    
-    /* CTA Section with Background Image */
-    .cta-section {
-        background-image: url('/images/backgrounds/tech-pattern.jpg');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-    }
-    
-    .cta-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(67, 56, 202, 0.95) 100%);
-        z-index: 1;
-    }
-    
-    .cta-content {
-        position: relative;
-        z-index: 2;
-    }
-    
-    .cta-title {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    
-    .cta-description {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    
-    .cta-counters {
-        opacity: 0;
-    }
-    
-    .cta-form {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    
-    .cta-form-input {
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-    }
-    
-    .cta-form-input:focus {
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-    }
-    
-    /* Particle animation */
-    .particles-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 1;
-    }
-    
-    .particle {
-        position: absolute;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.2);
-        pointer-events: none;
-    }
-    /* Base Animation & Effects */
     .reveal-element {
         opacity: 0;
         transform: translateY(30px);
@@ -137,20 +60,22 @@
         transform: translateY(0);
     }
     
-    /* Hero Section */
-    .hero-gradient {
-        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-    }
-    
-    /* Service Cards */
+    /* Essential layout styles only */
     .service-card {
-        transition: all 0.4s ease;
-    }
-    .service-card:hover {
-        transform: translateY(-10px);
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        height: 24rem;
     }
     
-    /* Client Logos */
+    .service-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+    }
+    
     .logo-container {
         display: flex;
         overflow: hidden;
@@ -159,247 +84,32 @@
 
     .logo-slider {
         display: flex;
-        animation: marquee 20s linear infinite;
-        width: 200%; /* Make room for duplicate logos */
+        width: 200%;
     }
 
-    .logo-slider:hover {
-        animation-play-state: paused;
-    }
-
-    @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); } /* Move exactly half of the width */
-    }
-
-    /* Ensure items don't get squished on mobile */
     .logo-slider > div {
         min-width: 150px;
     }
-
-    /* Responsive adjustments */
+    
+    /* Responsive base */
     @media (max-width: 640px) {
         .logo-slider > div {
             min-width: 120px;
         }
-    }
-    
-    /* Counter Animation */
-    .counter {
-        transition: all 0.5s ease;
-    }
-    
-    /* Testimonials */
-    .testimonial-card {
-        transition: all 0.3s ease;
-    }
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-    }
-
-    /* CTA Section */
-    .cta-button {
-        transition: all 0.3s ease;
-    }
-    .cta-button:hover {
-        transform: translateY(-3px);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-        .animate-fade-in {
-            animation: fadeIn 1.5s ease-in-out;
-        }
-    }
-    
-    @keyframes fadeIn {
-        0% { opacity: 0; transform: translateY(20px); }
-        100% { opacity: 1; transform: translateY(0); }
-
-    /* Custom animations */
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes fadeInLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    @keyframes fadeInRight {
-        from {
-            opacity: 0;
-            transform: translateX(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    @keyframes scaleX {
-        from {
-            transform: scaleX(0);
-        }
-        to {
-            transform: scaleX(1);
-        }
-    }
-    
-    @keyframes pulseSlow {
-        0%, 100% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-    }
-    
-    @keyframes bounceSlow {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-    
-    @keyframes spinSlow {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-    
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-    
-    @keyframes tadaSlow {
-        0% {
-            transform: scale(1);
-        }
-        10%, 20% {
-            transform: scale(0.9) rotate(-3deg);
-        }
-        30%, 50%, 70%, 90% {
-            transform: scale(1.1) rotate(3deg);
-        }
-        40%, 60%, 80% {
-            transform: scale(1.1) rotate(-3deg);
-        }
-        100% {
-            transform: scale(1) rotate(0);
-        }
-    }
-    
-    @keyframes bounceIn {
-        0% {
-            opacity: 0;
-            transform: scale(0.3);
-        }
-        50% {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-        70% {
-            transform: scale(0.9);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-    
-    /* Animation classes */
-    .animate-fade-in-down {
-        animation: fadeInDown 1s ease-out forwards;
-    }
-    
-    .animate-fade-in-up {
-        animation: fadeInUp 1s ease-out forwards;
-    }
-    
-    .animate-fade-in-left {
-        animation: fadeInLeft 1s ease-out forwards;
-    }
-    
-    .animate-fade-in-right {
-        animation: fadeInRight 1s ease-out forwards;
-    }
-    
-    .animate-scale-x {
-        animation: scaleX 0.8s ease-out forwards;
-    }
-    
-    .animate-pulse-slow {
-        animation: pulseSlow 3s infinite;
-    }
-    
-    .animate-bounce-slow {
-        animation: bounceSlow 3s infinite;
-    }
-    
-    .animate-spin-slow {
-        animation: spinSlow 8s linear infinite;
-    }
-    
-    .animate-float {
-        animation: float 4s ease-in-out infinite;
-    }
-    
-    .animate-tada-slow {
-        animation: tadaSlow 2s ease-in-out infinite;
-    }
-    
-    .animate-bounce-in {
-        animation: bounceIn 1s ease-out forwards;
-    }
     }
 </style>
 @endpush
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero-section relative min-h-screen overflow-hidden">
-        <div class="particles-container"></div>
+    <section class="hero-section relative overflow-hidden">
         <div class="container mx-auto px-4 relative z-10 flex items-center min-h-screen">
             <div class="w-full max-w-5xl mx-auto">
                 <div class="flex flex-col lg:flex-row items-center">
                     <!-- Left Text Content -->
                     <div class="w-full lg:w-3/5 text-white space-y-8 hero-content">
                         <div class="inline-flex items-center px-4 py-2 rounded-full bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm border border-white border-opacity-20 mb-4 hero-badge">
-                            <span class="w-3 h-3 rounded-full bg-blue-400 mr-2"></span>
+                            <span class="w-3 h-3 rounded-full bg-blue-400 mr-2" aria-hidden="true"></span>
                             <span class="text-sm font-medium">Solusi Digital</span>
                         </div>
                         
@@ -407,23 +117,26 @@
                             <span class="hero-title-word">TRANSFORM YOUR</span>
                             <span class="hero-title-word">BRAND,</span>
                             <span class="hero-title-word text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400">ELEVATE</span>
-                            <span class="hero-title-word text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400">YOURE</span>
+                            <span class="hero-title-word text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400">YOUR</span>
                             <span class="hero-title-word text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400">FUTURE.</span>
                         </h1>
                         
                         <p class="text-xl md:text-2xl text-blue-100 opacity-90 max-w-2xl hero-description">
-                            Transformasi digital yang membawa brand Anda lebih kuat, relevan, dan siap hadapi Era Digital.<br><strong>Trasformasi digital dimulai dari sini !</strong>
+                            Transformasi digital yang membawa brand Anda lebih kuat, relevan, dan siap hadapi Era Digital.<br><strong>Transformasi digital dimulai dari sini!</strong>
                         </p>
                         
                         <div class="flex flex-wrap gap-6 mt-4 hero-buttons">
                             <a href="https://wa.me/6282227121942" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            class="px-8 py-4 rounded-full bg-white text-blue-800 font-medium shadow-lg hover:shadow-blue-500/30 hover:scale-105 transition-all">
+                            class="px-8 py-4 rounded-full bg-white text-blue-800 font-medium shadow-lg hover:shadow-blue-500/30 hover:scale-105 transition-all"
+                            aria-label="Konsultasi Gratis via WhatsApp">
                             Konsultasi Gratis
                             </a>
 
-                            <a href="{{ route('portfolio') }}" class="px-8 py-4 rounded-full border border-white font-medium text-white hover:bg-white hover:bg-opacity-10 transition-all">
+                            <a href="{{ route('portfolio') }}" 
+                               class="px-8 py-4 rounded-full border border-white font-medium text-white hover:bg-white hover:bg-opacity-10 transition-all"
+                               aria-label="Lihat Portfolio Kami">
                                 Lihat Portfolio
                             </a>
                         </div>
@@ -443,16 +156,19 @@
                 <div class="text-center mb-8">
                     <h2 class="text-2xl font-bold text-gray-800 inline-block relative pb-2">
                         Klien Kami
-                        <!-- Garis biru muda -->
-                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-200 rounded-full"></span>
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-200 rounded-full" aria-hidden="true"></span>
                     </h2>
                 </div>
                 <div class="logo-container">
-                    <div class="logo-slider">
+                    <div class="logo-slider" id="logo-slider">
                         @foreach($clients as $client)
                         <div class="px-4 flex items-center justify-center">
-                            <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->klien }}"
-                                class="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy">
+                            <img src="{{ asset('storage/' . $client->logo) }}" 
+                                 alt="{{ $client->klien }}"
+                                 class="h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all" 
+                                 loading="lazy"
+                                 width="120"
+                                 height="64">
                         </div>
                         @endforeach
                     </div>
@@ -474,9 +190,14 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-element">
-                @foreach($layanans as $layanan)
+                @foreach($layanans as $index => $layanan)
                 <div class="service-card bg-gradient-to-b from-transparent to-black relative rounded-lg overflow-hidden group h-96">
-                    <img src="{{ asset('storage/' . $layanan->gambar) }}" alt="{{ $layanan->layanan }}" class="w-full h-full object-cover absolute inset-0" loading="lazy">
+                    <img src="{{ asset('storage/' . $layanan->gambar) }}" 
+                         alt="{{ $layanan->layanan }}" 
+                         class="w-full h-full object-cover absolute inset-0" 
+                         loading="{{ $index < 4 ? 'eager' : 'lazy' }}"
+                         width="300"
+                         height="384">
                     <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-50 transition-all"></div>
                     <div class="relative z-10 flex flex-col justify-end h-full p-6">
                         <h3 class="text-2xl font-bold text-white mb-2">{{ $layanan->layanan }}</h3>
@@ -515,7 +236,7 @@
                     <div class="flex justify-end mt-4">
                         <div class="bg-gray-200 p-6 rounded-lg shadow-sm reveal-element max-w-xs">
                             <div class="text-xl font-semibold text-gray-500 mb-2">05</div>
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2"> Persetujuan dan Deal Proyek</h4>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Persetujuan dan Deal Proyek</h4>
                         </div>
                     </div>
                 </div>
@@ -559,113 +280,48 @@
         </div>
     </section>
 
-
     <!-- Section Kenapa Memilih Kami -->
     <section id="why-choose-us" class="why-choose-us py-16 bg-gray-50 overflow-hidden">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12 transform transition-all duration-500 ease-in-out hover:scale-105">
-                <h2 class="text-3xl font-bold mb-4 text-gray-800 animate-fade-in-down">Kenapa Memilih Kami</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6 animate-scale-x"></div>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up">Kami hadir untuk memberikan solusi yang unggul, inovatif, dan berkualitas untuk mendukung kesuksesan bisnis Anda. Inilah alasan kenapa kami pilihan terbaik untuk Anda!</p>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Kenapa Memilih Kami</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6" aria-hidden="true"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Kami hadir untuk memberikan solusi yang unggul, inovatif, dan berkualitas untuk mendukung kesuksesan bisnis Anda.</p>
             </div>
             
-            <!-- First row - 3 cards (Acak) -->
+            <!-- Features Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                @php
+                $features = [
+                    ['title' => 'Inovatif', 'desc' => 'Kami selalu berinovasi untuk memberikan solusi yang segar dan sesuai dengan perkembangan terkini.', 'icon' => 'inovatif.png', 'featured' => false],
+                    ['title' => 'Berkualitas', 'desc' => 'Kami selalu mengutamakan kualitas tinggi dalam setiap pekerjaan untuk memberikan dampak positif pada brand Anda.', 'icon' => 'kualitas.jpg', 'featured' => true],
+                    ['title' => 'Handal', 'desc' => 'Kami memastikan setiap proyek dikelola dengan penuh pengawasan untuk hasil yang dapat diandalkan.', 'icon' => 'percaya.jpg', 'featured' => false],
+                    ['title' => 'Cepat', 'desc' => 'Dengan pendekatan agile, kami memberikan respon yang cepat dan solusi yang tepat waktu.', 'icon' => 'respon.jpg', 'featured' => true],
+                    ['title' => 'Kreatif', 'desc' => 'Kami menghadirkan solusi kreatif yang berbeda dan penuh inspirasi untuk brand Anda.', 'icon' => 'kreatif.png', 'featured' => false],
+                    ['title' => 'Profesional', 'desc' => 'Tim kami terdiri dari para ahli yang berdedikasi untuk hasil berkualitas tinggi.', 'icon' => 'pro.jpg', 'featured' => true]
+                ];
+                @endphp
                 
-                <!-- Card 1: Inovatif -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-left">
+                @foreach($features as $index => $feature)
+                <div class="{{ $feature['featured'] ? 'bg-gradient-to-br from-blue-600 to-blue-800 text-white' : 'bg-white' }} rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                     <div class="flex items-center p-6">
-                        <div class="w-24 h-24 flex-shrink-0 mr-4 animate-pulse-slow">
-                            <div class="w-full h-full bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/inovatif.png') }}" alt="Inovatif Icon" class="w-16 h-16" loading="lazy" />
+                        <div class="w-24 h-24 flex-shrink-0 mr-4">
+                            <div class="w-full h-full {{ $feature['featured'] ? 'bg-white' : 'bg-blue-100' }} rounded-full flex items-center justify-center">
+                                <img src="{{ asset('images/hero/' . $feature['icon']) }}" 
+                                     alt="{{ $feature['title'] }} Icon" 
+                                     class="w-16 h-16" 
+                                     loading="lazy"
+                                     width="64"
+                                     height="64">
                             </div>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Inovatif</h3>
-                            <p class="text-gray-600">Kami selalu berinovasi untuk memberikan solusi yang segar dan sesuai dengan perkembangan terkini.</p>
+                            <h3 class="text-xl font-bold mb-2">{{ $feature['title'] }}</h3>
+                            <p class="{{ $feature['featured'] ? 'text-white' : 'text-gray-600' }}">{{ $feature['desc'] }}</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 2: Berkualitas -->
-                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-down">
-                    <div class="flex items-center p-6">
-                        <div class="w-24 h-24 flex-shrink-0 mr-4 animate-bounce-slow">
-                            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/kualitas.jpg') }}" alt="Berkualitas Icon" class="w-16 h-16" loading="lazy" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-white">Berkualitas</h3>
-                            <p class="text-white">Kami selalu mengutamakan kualitas tinggi dalam setiap pekerjaan untuk memberikan dampak positif pada brand Anda.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Handal -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-right">
-                    <div class="flex items-center p-6">
-                        <div class="w-24 h-24 flex-shrink-0 mr-4 animate-spin-slow">
-                            <div class="w-full h-full bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/percaya.jpg') }}" alt="Handal Icon" class="w-16 h-16" loading="lazy" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Handal</h3>
-                            <p class="text-gray-600">Kami memastikan setiap proyek dikelola dengan penuh pengawasan untuk hasil yang dapat diandalkan.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second row - 3 cards (Acak) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                
-                <!-- Card 4: Cepat -->
-                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-left">
-                    <div class="flex items-center p-6">
-                        <div class="w-24 h-24 flex-shrink-0 mr-4 animate-pulse-slow">
-                            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/respon.jpg') }}" alt="Cepat Icon" class="w-16 h-16" loading="lazy" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-white">Cepat</h3>
-                            <p class="text-white">Dengan pendekatan agile, kami memberikan respon yang cepat dan solusi yang tepat waktu.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5: Kreatif -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-down">
-                    <div class="flex items-center p-6">
-                        <div class="w-24 h-24 flex-shrink-0 mr-4 animate-bounce-slow">
-                            <div class="w-full h-full bg-blue-100 rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/kreatif.png') }}" alt="Kreatif Icon" class="w-16 h-16" loading="lazy" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-800">Kreatif</h3>
-                            <p class="text-gray-600">Kami menghadirkan solusi kreatif yang berbeda dan penuh inspirasi untuk brand Anda.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6: Profesional -->
-                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in-right">
-                    <div class="flex items-center p-6">
-                        <div class="w-24 h-24 flex-shrink-0 mr-4 animate-spin-slow">
-                            <div class="w-full h-full bg-white rounded-full flex items-center justify-center">
-                                <img src="{{ asset('images/hero/pro.jpg') }}" alt="Profesional Icon" class="w-16 h-16" loading="lazy" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-white">Profesional</h3>
-                            <p class="text-white">Tim kami terdiri dari para ahli yang berdedikasi untuk hasil berkualitas tinggi.</p>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </section>
@@ -686,16 +342,20 @@
                 </div>
                 
                 <div class="flex justify-center mt-10 gap-2">
-                    <button id="prev-btn" class="p-3 rounded-full bg-gray-100 hover:bg-blue-100 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button id="prev-btn" 
+                            class="p-3 rounded-full bg-gray-100 hover:bg-blue-100 transition-colors"
+                            aria-label="Previous testimonial">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
                     <div id="pagination" class="flex items-center gap-2">
                         <!-- Pagination dots will be generated by JS -->
                     </div>
-                    <button id="next-btn" class="p-3 rounded-full bg-gray-100 hover:bg-blue-100 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button id="next-btn" 
+                            class="p-3 rounded-full bg-gray-100 hover:bg-blue-100 transition-colors"
+                            aria-label="Next testimonial">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
@@ -705,8 +365,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section py-24 relative overflow-hidden">
-        <div class="particles-container"></div>
+    <section class="cta-section py-24 relative overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800">
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col lg:flex-row items-center justify-between">
                 <!-- Text Content -->
@@ -741,18 +400,31 @@
                         
                         <form id="cta-form">
                             <div class="mb-4">
-                                <label class="text-gray-700 mb-2 block">Nama Anda</label>
-                                <input type="text" placeholder="Masukkan nama lengkap" class="cta-form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none">
+                                <label for="nama" class="text-gray-700 mb-2 block">Nama Anda</label>
+                                <input type="text" 
+                                       id="nama"
+                                       name="nama"
+                                       placeholder="Masukkan nama lengkap" 
+                                       class="cta-form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                                       required>
                             </div>
                             
                             <div class="mb-4">
-                                <label class="text-gray-700 mb-2 block">Email</label>
-                                <input type="email" placeholder="email@perusahaan.com" class="cta-form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none">
+                                <label for="email" class="text-gray-700 mb-2 block">Email</label>
+                                <input type="email" 
+                                       id="email"
+                                       name="email"
+                                       placeholder="email@perusahaan.com" 
+                                       class="cta-form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                                       required>
                             </div>
                             
                             <div class="mb-6">
-                                <label class="text-gray-700 mb-2 block">Jenis Layanan</label>
-                                <select class="cta-form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none">
+                                <label for="layanan" class="text-gray-700 mb-2 block">Jenis Layanan</label>
+                                <select id="layanan" 
+                                        name="layanan"
+                                        class="cta-form-input w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                                        required>
                                     <option value="">Pilih layanan yang dibutuhkan</option>
                                     <option value="web">Web Development</option>
                                     <option value="app">Mobile Development</option>
@@ -762,7 +434,8 @@
                                 </select>
                             </div>
                             
-                            <button type="submit" class="cta-button w-full bg-blue-600 text-white font-medium py-3 rounded-lg hover:bg-blue-700 transform transition-all">
+                            <button type="submit" 
+                                    class="cta-button w-full bg-blue-600 text-white font-medium py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform transition-all">
                                 Konsultasi Gratis
                             </button>
                         </form>

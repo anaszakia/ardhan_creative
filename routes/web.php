@@ -100,6 +100,6 @@ Route::get('/konsultasi', function () {
 })->name('konsultasi');
 
 // Lamaran (tidak perlu diubah jika sudah pakai controller)
-Route::get('/karir/{id?}', [LamaranController::class, 'showForm'])->name('karir');
+Route::get('/karir/{id?}', [LamaranController::class, 'showForm'])->name('karir.form');
 Route::post('/lamaran', [LamaranController::class, 'store'])->name('lamaran.store');
 Route::get('/lamaran/form/{id?}', [LamaranController::class, 'showForm'])->name('lamaran.form');

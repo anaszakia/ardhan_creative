@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Jasa Pembuatan Web, Aplikasi, IOT, Brand Design')
+@section('title', 'Jasa Pembuatan Website di Pati | Ardhan Creative')
 
-@section('meta_description', 'Ardhan Creative menyediakan jasa pembuatan website profesional di Pati. Cepat, responsif, dan SEO friendly.')
+@section('meta_description', 'Jasa pembuatan website profesional di Pati, cepat, responsif, dan SEO friendly. Ardhan Creative siap membantu bisnis Anda online.')
 
 @section('meta_keywords', 'jasa pembuatan website, web development pati, jasa web pati')
 

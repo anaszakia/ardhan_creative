@@ -267,30 +267,30 @@
     </section>
 
     <!-- Application Form Section -->
-    <section class="py-20 bg-gradient-to-b from-gray-50 to-white" id="application-form">
+    <section class="py-12 bg-gray-50" id="application-form">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-2xl mx-auto">
                 <!-- Form Header -->
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Bergabung Dengan Tim Kami</h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6 rounded-full"></div>
-                    <p class="text-gray-600">Satu langkah lagi menuju karir impian Anda</p>
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Bergabung Dengan Tim Kami</h2>
+                    <p class="text-gray-600">Isi formulir di bawah ini untuk melamar pekerjaan</p>
                 </div>
                 
+                <!-- Success/Error Messages -->
                 @if(session('success'))
-                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 rounded-lg">
-                        <p>{{ session('success') }}</p>
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+                        {{ session('success') }}
                     </div>
                 @endif
                 
                 @if(session('error'))
-                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8 rounded-lg">
-                        <p>{{ session('error') }}</p>
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                        {{ session('error') }}
                     </div>
                 @endif
                 
                 @if ($errors->any())
-                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8 rounded-lg">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
                         <ul class="list-disc pl-5">
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -299,239 +299,182 @@
                     </div>
                 @endif
                 
-                <!-- Application Card -->
-                <div class="application-form bg-white rounded-2xl overflow-hidden shadow-xl">
-                    <!-- Form Header -->
-                    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white relative overflow-hidden">
-                        <!-- Background Pattern -->
-                        <div class="absolute top-0 left-0 w-full h-full opacity-10">
-                            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <defs>
-                                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                                        <circle cx="5" cy="5" r="1" fill="white" />
-                                    </pattern>
-                                </defs>
-                                <rect width="100%" height="100%" fill="url(#grid)" />
-                            </svg>
-                        </div>
-                        
-                        <div class="relative z-10">
-                            <h2 class="text-2xl md:text-3xl font-bold mb-2">Formulir Lamaran Pekerjaan</h2>
-                            <p id="selected-job-text" class="opacity-90 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                                <span>
-                                    @if(isset($selectedPosition))
-                                        Melamar untuk posisi: {{ $selectedPosition->posisi }}
-                                    @else
-                                        Pilih posisi terlebih dahulu
-                                    @endif
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Step Indicator -->
-                    <div class="px-8 py-4 bg-gray-50 border-b border-gray-100">
-                        <div class="flex items-center justify-between max-w-md mx-auto">
-                            <div class="text-center">
-                                <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center mx-auto">
-                                    1
-                                </div>
-                                <p class="text-xs mt-1 text-blue-600 font-medium">Data Diri</p>
-                            </div>
-                            <div class="flex-1 h-1 bg-gray-200 mx-2">
-                                <div class="w-0 h-full bg-blue-600"></div>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center mx-auto">
-                                    2
-                                </div>
-                                <p class="text-xs mt-1 text-gray-500">Pengalaman</p>
-                            </div>
-                            <div class="flex-1 h-1 bg-gray-200 mx-2"></div>
-                            <div class="text-center">
-                                <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center mx-auto">
-                                    3
-                                </div>
-                                <p class="text-xs mt-1 text-gray-500">Dokumen</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <form id="career-form" action="{{ route('lamaran.store') }}" method="POST" enctype="multipart/form-data" class="p-8">
+                <!-- Form Card -->
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <form action="{{ route('lamaran.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" id="selected-job" name="position" value="{{ $selectedPosition->posisi ?? '' }}">
-                        
-                        <!-- Personal Information Section -->
-                        <div class="mb-10">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
-                                <span class="inline-block w-8 h-8 rounded-full bg-blue-100 text-blue-600 mr-3 flex items-center justify-center text-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                    </svg>
-                                </span>
-                                Informasi Pribadi
-                            </h3>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="fullname" class="block text-gray-700 text-sm font-medium mb-2">Nama Lengkap</label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="fullname" name="fullname" value="{{ old('fullname') }}" class="form-input w-full pl-10 p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Masukkan nama lengkap" required>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-gray-700 text-sm font-medium mb-2">Email</label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                            </svg>
-                                        </div>
-                                        <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-input w-full pl-10 p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="email@contoh.com" required>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="phone" class="block text-gray-700 text-sm font-medium mb-2">Nomor Telepon</label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                            </svg>
-                                        </div>
-                                        <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" class="form-input w-full pl-10 p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="+62 800 1234 5678" required>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="location" class="block text-gray-700 text-sm font-medium mb-2">Domisili</label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            </svg>
-                                        </div>
-                                        <input type="text" id="location" name="location" value="{{ old('location') }}" class="form-input w-full pl-10 p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Kota, Provinsi" required>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="posisi" style="font-weight: bold; color: #333; margin-bottom: 5px; display: block;">Posisi Pekerjaan *</label>
+                            <select name="posisi" id="posisi" class="form-control" required 
+                                    style="width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; background-color: white; outline: none; transition: border-color 0.3s ease;">
+                                <option value="">-- Pilih Posisi --</option>
+                                @if(isset($lokerList) && $lokerList->count() > 0)
+                                    @foreach($lokerList as $loker)
+                                        <option value="{{ $loker->posisi }}" 
+                                            {{ old('posisi') == $loker->posisi ? 'selected' : '' }}>
+                                            {{ $loker->posisi }}
+                                        </option>
+                                    @endforeach
+                                @endif
+                            </select>
                         </div>
                         
-                        <!-- Experience Section -->
-                        <div class="mb-10">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
-                                <span class="inline-block w-8 h-8 rounded-full bg-blue-100 text-blue-600 mr-3 flex items-center justify-center text-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </span>
-                                Pengalaman & Profil
-                            </h3>
-                            
-                            <div class="mb-6">
-                                <label for="experience" class="block text-gray-700 text-sm font-medium mb-2">Pengalaman Kerja</label>
-                                <div class="relative">
-                                    <div class="flex items-center">
-                                        <input type="range" min="0" max="20" step="1" value="{{ old('experience', 0) }}" id="experience-range" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
-                                        <span id="experience-value" class="ml-4 px-3 py-1 bg-blue-600 text-white rounded-lg min-w-[60px] text-center">{{ old('experience', 0) }} tahun</span>
-                                    </div>
-                                    <input type="hidden" id="experience" name="experience" value="{{ old('experience', 0) }}">
-                                </div>
-                            </div>
-                            
-                            <div class="mb-6">
-                                <label for="portfolio" class="block text-gray-700 text-sm font-medium mb-2">Portfolio/LinkedIn Profile (URL)</label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                                        </svg>
-                                    </div>
-                                    <input type="url" id="portfolio" name="portfolio" value="{{ old('portfolio') }}" class="form-input w-full pl-10 p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="https://www.linkedin.com/in/username">
-                                </div>
-                            </div>
-                            
-                            <div class="mb-6">
-                                <label for="cover-letter" class="block text-gray-700 text-sm font-medium mb-2">Surat Lamaran</label>
-                                <div class="relative">
-                                    <textarea id="cover-letter" name="cover-letter" rows="4" class="form-input w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Ceritakan tentang diri Anda dan mengapa Anda tertarik dengan posisi ini..." required>{{ old('cover-letter') }}</textarea>
-                                    <div class="absolute bottom-3 right-3 text-xs text-gray-400">
-                                        <span id="letter-count">{{ strlen(old('cover-letter', '')) }}</span>/500
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Document Upload Section -->
-                        <div class="mb-10">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-6 flex items-center">
-                                <span class="inline-block w-8 h-8 rounded-full bg-blue-100 text-blue-600 mr-3 flex items-center justify-center text-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                </span>
-                                Upload Dokumen
-                            </h3>
-                            
-                            <div class="mb-8">
-                                <label class="block text-gray-700 text-sm font-medium mb-2">Upload CV/Resume (PDF, max 5MB)</label>
-                                <div class="file-upload p-8 rounded-lg text-center cursor-pointer border-2 border-dashed border-gray-300 hover:border-blue-500 bg-gray-50 hover:bg-blue-50 transition-colors group">
-                                    <input type="file" id="resume" name="resume" class="hidden" accept=".pdf" required>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-gray-400 group-hover:text-blue-500 mb-4 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
-                                    <p class="text-gray-600 group-hover:text-gray-800 transition-colors">Drag & drop file CV Anda di sini atau <span class="text-blue-600 font-medium">browse</span></p>
-                                    <p class="text-sm text-gray-400 mt-2">Format PDF (max. 5MB)</p>
-                                    
-                                    <!-- File preview (initially hidden) -->
-                                    <div id="file-preview" class="hidden mt-4 bg-white p-3 rounded-lg border border-gray-200 flex items-center justify-between">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                            </svg>
-                                            <span id="file-name" class="text-sm text-gray-700">document.pdf</span>
-                                        </div>
-                                        <button type="button" id="remove-file" class="text-gray-400 hover:text-red-500">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Agreement Section -->
+                        <!-- Section 1: Data Diri -->
                         <div class="mb-8">
-                            <div class="p-4 rounded-lg bg-blue-50 border border-blue-100 flex items-start">
-                                <div class="flex-shrink-0 mt-0.5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-3">
-                                    <label class="flex items-center">
-                                        <input type="checkbox" id="agree" name="agree" class="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" required>
-                                        <span class="ml-2 text-gray-700 text-sm">Saya menyetujui pengolahan data pribadi sesuai <a href="#" class="text-blue-600 hover:underline">kebijakan privasi</a></span>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+                                1. Data Diri
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="nama" class="block text-sm font-medium text-gray-700 mb-1">
+                                        Nama Lengkap *
                                     </label>
+                                    <input type="text" 
+                                        id="nama" 
+                                        name="nama" 
+                                        value="{{ old('nama') }}"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                        placeholder="Masukkan nama lengkap Anda"
+                                        required>
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                                        Email *
+                                    </label>
+                                    <input type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        value="{{ old('email') }}"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                        placeholder="contoh@email.com"
+                                        required>
+                                </div>
+                                
+                                <div>
+                                    <label for="no_telepon" class="block text-sm font-medium text-gray-700 mb-1">
+                                        Nomor Telepon *
+                                    </label>
+                                    <input type="tel" 
+                                        id="no_telepon" 
+                                        name="no_telepon" 
+                                        value="{{ old('no_telepon') }}"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                        placeholder="08123456789"
+                                        required>
+                                </div>
+                                
+                                <div>
+                                    <label for="domisili" class="block text-sm font-medium text-gray-700 mb-1">
+                                        Domisili *
+                                    </label>
+                                    <input type="text" 
+                                        id="domisili" 
+                                        name="domisili" 
+                                        value="{{ old('domisili') }}"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                        placeholder="Kota, Provinsi"
+                                        required>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <!-- Section 2: Pengalaman -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+                                2. Pengalaman & Profil
+                            </h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="pengalaman" class="block text-sm font-medium text-gray-700 mb-1">
+                                        Pengalaman Kerja (tahun) *
+                                    </label>
+                                    <select id="pengalaman" 
+                                            name="pengalaman" 
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            required>
+                                        <option value="">-- Pilih Pengalaman --</option>
+                                        <option value="0" {{ old('pengalaman') == '0' ? 'selected' : '' }}>Belum ada pengalaman</option>
+                                        <option value="1" {{ old('pengalaman') == '1' ? 'selected' : '' }}>1 tahun</option>
+                                        <option value="2" {{ old('pengalaman') == '2' ? 'selected' : '' }}>2 tahun</option>
+                                        <option value="3" {{ old('pengalaman') == '3' ? 'selected' : '' }}>3 tahun</option>
+                                        <option value="4" {{ old('pengalaman') == '4' ? 'selected' : '' }}>4 tahun</option>
+                                        <option value="5" {{ old('pengalaman') == '5' ? 'selected' : '' }}>5 tahun</option>
+                                        <option value="6-10" {{ old('pengalaman') == '6-10' ? 'selected' : '' }}>6-10 tahun</option>
+                                        <option value="10+" {{ old('pengalaman') == '10+' ? 'selected' : '' }}>Lebih dari 10 tahun</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="link_porto" class="block text-sm font-medium text-gray-700 mb-1">
+                                        Portfolio/LinkedIn (URL)
+                                    </label>
+                                    <input type="url" 
+                                        id="link_porto" 
+                                        name="link_porto" 
+                                        value="{{ old('link_porto') }}"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                        placeholder="https://www.linkedin.com/in/username">
+                                </div>
+                                
+                                <div>
+                                    <label for="surat_lamaran" class="block text-sm font-medium text-gray-700 mb-1">
+                                        Surat Lamaran *
+                                    </label>
+                                    <textarea id="surat_lamaran" 
+                                            name="surat_lamaran" 
+                                            rows="4" 
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+                                            placeholder="Ceritakan tentang diri Anda dan mengapa Anda tertarik dengan posisi ini..."
+                                            required>{{ old('surat_lamaran') }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 3: Dokumen -->
+                        <div class="mb-8">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+                                3. Upload Dokumen
+                            </h3>
+                            
+                            <div>
+                                <label for="cv" class="block text-sm font-medium text-gray-700 mb-1">
+                                    CV/Resume (PDF) *
+                                </label>
+                                <input type="file" 
+                                    id="cv" 
+                                    name="cv" 
+                                    accept=".pdf"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    required>
+                                <p class="text-xs text-gray-500 mt-1">Format PDF, maksimal 5MB</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Agreement -->
+                        <div class="mb-6">
+                            <label class="flex items-start">
+                                <input type="checkbox" 
+                                    id="agree" 
+                                    name="agree" 
+                                    value="1"
+                                    class="mt-1 mr-3 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                    required>
+                                <span class="text-sm text-gray-700">
+                                    Saya menyetujui pengolahan data pribadi sesuai dengan kebijakan privasi perusahaan *
+                                </span>
+                            </label>
                         </div>
                         
                         <!-- Submit Button -->
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-medium py-3.5 px-4 rounded-lg hover:from-blue-700 hover:to-indigo-800 focus:ring-4 focus:ring-blue-300 focus:outline-none transition-all flex items-center justify-center">
-                            Lamar Sekarang
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                            </svg>
-                        </button>                    
+                        <div class="text-center">
+                            <button type="submit" 
+                                class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200">
+                                Kirim Lamaran
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -758,5 +701,6 @@ fileUpload.addEventListener('drop', function(e) {
 fileUpload.addEventListener('click', function() {
     fileInput.click();
 });
+
 </script>
 @endpush

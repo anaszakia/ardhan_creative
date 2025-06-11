@@ -99,7 +99,14 @@ Route::get('/konsultasi', function () {
     ]);
 })->name('konsultasi');
 
-// Lamaran (tidak perlu diubah jika sudah pakai controller)
-Route::get('/karir/{id?}', [LamaranController::class, 'showForm'])->name('karir.form');
-Route::post('/lamaran', [LamaranController::class, 'store'])->name('lamaran.store');
-Route::get('/lamaran/form/{id?}', [LamaranController::class, 'showForm'])->name('lamaran.form');
+// Route untuk form lamaran
+Route::get('/lamaran/create', [LamaranController::class, 'create'])->name('lamaran.create');
+Route::post('/lamaran/store', [LamaranController::class, 'store'])->name('lamaran.store');
+
+// Route untuk admin (opsional)
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/lamaran', [LamaranController::class, 'index'])->name('lamaran.index');
+    Route::get('/lamaran/{id}', [LamaranController::class, 'show'])->name('lamaran.show');
+    Route::get('/lamaran/{id}/download-cv', [LamaranController::class, 'downloadCV'])->name('lamaran.download-cv');
+    Route::delete('/lamaran/{id}', [LamaranController::class, 'destroy'])->name('lamaran.destroy');
+});
